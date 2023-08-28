@@ -1,0 +1,27 @@
+:root {
+    --primary: #ff5733;
+    --secondary: #2ecc71;
+    --accent: #3498db;
+    --accent-hover: #0f73b6;
+    --dark: #555555;
+    --light: #f5f5f5;
+    --gray: #cccccc;
+    --danger: #dc3545;
+    --danger-hover: #c82333;
+    --warning: #ffc107;
+    --warning-hover: #e0a800;
+    --success: #28a745;
+    --success-hover: #218838;
+    --floating-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--light);
+    font-family: Arial, Helvetica, sans-serif;
+}

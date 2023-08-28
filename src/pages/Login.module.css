@@ -1,0 +1,25 @@
+.main {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 400px);
+    padding: 20px 2px 0;
+    background-color: var(--light);
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: var(--floating-box-shadow);
+}
+
+.main img {
+    width: min(200px, 90%);
+    max-height: 120px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.main form {
+    width: 90%;
+    margin: auto;
+}

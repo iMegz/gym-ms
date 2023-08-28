@@ -1,0 +1,55 @@
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid var(--gray);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.btn.default {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn.default:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn.danger {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn.danger:hover {
+    background-color: var(--danger-hover);
+}
+
+.btn.warning {
+    background-color: var(--warning);
+}
+
+.btn.warning:hover {
+    background-color: var(--warning-hover);
+}
+
+.btn.success {
+    background-color: var(--success);
+    color: white;
+}
+
+.btn.success:hover {
+    background-color: var(--success-hover);
+}
+
+.btn:disabled {
+    background: transparent;
+    color: var(--gray);
+    cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+    background: transparent;
+}
