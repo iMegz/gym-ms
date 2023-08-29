@@ -1,8 +1,8 @@
 import style from "./Login.module.css";
-import logo from "../assets/logo.svg";
-import InputField from "../components/InputField/InputFIeld";
+import logo from "../../assets/logo.svg";
+import InputField from "../../components/InputField/InputFIeld";
 import { useState } from "react";
-import Button from "../components/Button/Button";
+import Button from "../../components/Button/Button";
 
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState("");
