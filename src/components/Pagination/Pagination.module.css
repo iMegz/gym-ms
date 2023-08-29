@@ -1,0 +1,43 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: auto;
+}
+
+.pagination > svg {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.pagination > ul {
+    display: flex;
+    list-style: none;
+    gap: 6px;
+}
+
+.pagination > ul > li {
+    padding: 2px;
+    border: 1px solid var(--dark);
+    border-radius: 4px;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.pagination > ul > li.active {
+    background-color: var(--accent);
+}
+
+.inactive-arrow {
+    color: var(--dark);
+    cursor: default !important;
+}
+
+.hidden-pages {
+    cursor: default !important;
+}

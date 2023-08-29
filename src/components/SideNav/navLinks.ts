@@ -42,8 +42,8 @@ export const superUserLinks = [
         icon: FaCheckCircle,
     },
     {
-        label: "Log",
-        path: "log",
+        label: "Logs",
+        path: "logs",
         icon: FaDatabase,
     },
     {
@@ -70,6 +70,11 @@ export const adminLinks = [
         icon: FaUsers,
     },
     {
+        label: "Subscriptions",
+        path: "subscriptions",
+        icon: FaMoneyBill,
+    },
+    {
         label: "New session",
         path: "session",
         icon: FaCheckCircle,
@@ -86,6 +91,11 @@ export const memberLinks = [
         label: "Profile",
         path: "profile",
         icon: FaUserCircle,
+    },
+    {
+        label: "Subscriptions",
+        path: "subscriptions",
+        icon: FaMoneyBill,
     },
     {
         label: "Logout",
