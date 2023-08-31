@@ -4,7 +4,7 @@ import Logs from "./Logs/Logs";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import loadingIcon from "../../assets/loading.gif";
-import logo from "../../assets/logo.svg";
+import Subscriptions from "./Subscriptions/Subscriptions";
 
 export interface DashboardProps {
     loaded: () => void;
@@ -42,6 +42,10 @@ const Dashboard: React.FC = () => {
             <section className={style.content}>
                 <Routes>
                     <Route path="logs" element={<Logs loaded={loaded} />} />
+                    <Route
+                        path="subscriptions"
+                        element={<Subscriptions loaded={loaded} />}
+                    />
                 </Routes>
             </section>
         </main>

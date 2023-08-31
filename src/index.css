@@ -13,6 +13,7 @@
     --success: #28a745;
     --success-hover: #218838;
     --floating-box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    --section-padding: 16px;
 }
 
 * {
@@ -39,4 +40,12 @@ input[type="date"] {
 
 h2 {
     margin-bottom: 16px;
+}
+
+.floating-section {
+    background-color: white;
+    padding: var(--section-padding);
+    box-shadow: var(--floating-box-shadow);
+    border-radius: 8px;
+    margin-bottom: 20px;
 }

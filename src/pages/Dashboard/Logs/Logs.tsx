@@ -49,8 +49,9 @@ const Logs: React.FC<DashboardProps> = ({ loaded }) => {
     return (
         <>
             <h1>Logs</h1>
+
             {/* Filter */}
-            <div className={style.filter}>
+            <section className={`floating-section ${style.filter}`}>
                 <h2>Filter</h2>
                 <div className={style.filters}>
                     <div>
@@ -84,10 +85,10 @@ const Logs: React.FC<DashboardProps> = ({ loaded }) => {
                         </select>
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Logs */}
-            <div className={style.logs}>
+            <section className={`floating-section ${style.logs}`}>
                 <h2>Logs</h2>
                 <ul>
                     {logs.map((log) => (
@@ -102,7 +103,7 @@ const Logs: React.FC<DashboardProps> = ({ loaded }) => {
                     currentPage={page}
                     changePage={changePage}
                 />
-            </div>
+            </section>
         </>
     );
 };
