@@ -2,11 +2,13 @@ import style from "./InputField.module.css";
 
 interface InputFieldProps {
     label: string;
-    value?: string;
-    type?: "text" | "email" | "password";
+    value?: string | number;
+    type?: "text" | "email" | "password" | "number";
     required?: boolean;
     disabled?: boolean;
     readOnly?: boolean;
+    min?: number;
+    max?: number;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -17,6 +19,8 @@ const InputField: React.FC<InputFieldProps> = ({
     required = false,
     disabled = false,
     readOnly = false,
+    min,
+    max,
     onChange,
 }) => {
     return (
@@ -29,6 +33,8 @@ const InputField: React.FC<InputFieldProps> = ({
             required={required}
             disabled={disabled}
             readOnly={readOnly}
+            min={min}
+            max={max}
         />
     );
 };

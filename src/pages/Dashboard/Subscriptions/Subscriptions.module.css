@@ -36,6 +36,7 @@
 /* Super user */
 .new-sub {
     width: fit-content;
+    margin-bottom: 20px;
 }
 
 .sub-control {
@@ -46,6 +47,5 @@
 }
 
 .sub-control > button {
-    margin-bottom: 0;
     flex: 1;
 }

@@ -3,7 +3,6 @@
     border-radius: 6px;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 20px;
     border: 1px solid var(--gray);
     font-size: 1rem;
     transition: all 0.3s;

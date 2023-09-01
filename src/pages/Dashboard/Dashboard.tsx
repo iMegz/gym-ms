@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import loadingIcon from "../../assets/loading.gif";
 import Subscriptions from "./Subscriptions/Subscriptions";
+import Session from "./Session/Session";
 
 export interface DashboardProps {
     loaded: () => void;
@@ -45,6 +46,10 @@ const Dashboard: React.FC = () => {
                     <Route
                         path="subscriptions"
                         element={<Subscriptions loaded={loaded} />}
+                    />
+                    <Route
+                        path="session"
+                        element={<Session loaded={loaded} />}
                     />
                 </Routes>
             </section>

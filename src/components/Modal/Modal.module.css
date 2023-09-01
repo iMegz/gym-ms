@@ -1,0 +1,16 @@
+/* Modal */
+.overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000089;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.modal {
+    max-width: 90vw;
+}
