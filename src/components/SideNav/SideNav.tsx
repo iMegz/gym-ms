@@ -29,6 +29,7 @@ const mapLinks = (userType: userType) => {
     return links.map((link) => (
         <li key={link.path}>
             <NavLink
+                end
                 className={({ isActive }) => (isActive ? style.active : "")}
                 to={link.path}
             >

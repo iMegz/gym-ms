@@ -11,6 +11,7 @@ export type LogType =
     | "subscriptionChange"
     | "subscriptionDeactivate"
     | "userLogin"
+    | "userChangeInfo"
     | "logExport"
     | "logDelete";
 
@@ -84,12 +85,21 @@ const logTypes: LogTypes[] = [
         ],
     },
     {
-        label: "Other",
+        label: "User",
         types: [
             {
                 label: "User login",
                 value: "userLogin",
             },
+            {
+                label: "User change info",
+                value: "userChangeInfo",
+            },
+        ],
+    },
+    {
+        label: "Log",
+        types: [
             {
                 label: "Log export",
                 value: "logExport",

@@ -6,6 +6,10 @@
     margin: auto;
 }
 
+.session input {
+    margin-bottom: 20px;
+}
+
 .user-info {
     display: flex;
     flex-direction: column;
@@ -32,5 +36,4 @@
 
 .invitations input {
     width: 60px;
-    margin-bottom: 0;
 }

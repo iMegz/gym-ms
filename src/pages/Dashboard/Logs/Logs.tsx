@@ -74,7 +74,10 @@ const Logs: React.FC<DashboardProps> = ({ loaded }) => {
                                     >
                                         {type.types.map((option) => {
                                             return (
-                                                <option value={option.value}>
+                                                <option
+                                                    key={option.value}
+                                                    value={option.value}
+                                                >
                                                     {option.label}
                                                 </option>
                                             );
