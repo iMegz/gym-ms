@@ -53,7 +53,7 @@ export const FreezeModal: React.FC<ModalProps> = ({ profile, hideModal }) => {
                     disabled={profile.freeze === 0 || !freeze}
                 />
 
-                <Button label="Cancel" type="danger" onClick={hideModal} />
+                <Button label="Cancel" btnStyle="danger" onClick={hideModal} />
             </div>
         </Modal>
     );
@@ -118,7 +118,7 @@ export const EditModal: React.FC<ModalProps> = ({ profile, hideModal }) => {
 
                 <Button label="Edit" onClick={handleEdit} disabled={!isValid} />
 
-                <Button type="danger" label="Cancel" onClick={hideModal} />
+                <Button btnStyle="danger" label="Cancel" onClick={hideModal} />
             </div>
         </Modal>
     );
@@ -192,12 +192,12 @@ export const PasswordModal: React.FC<ModalProps> = ({ hideModal }) => {
                 </div>
 
                 <Button
-                    label="Change"
+                    label="Change password"
                     onClick={handleChangePassword}
                     disabled={!isValid}
                 />
 
-                <Button type="danger" label="Cancel" onClick={hideModal} />
+                <Button btnStyle="danger" label="Cancel" onClick={hideModal} />
             </div>
         </Modal>
     );

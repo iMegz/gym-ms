@@ -1,25 +1,19 @@
 import style from "./Button.module.css";
 
-interface ButtonProps {
-    label?: string;
-    type?: "default" | "danger" | "warning" | "success";
-    disabled?: boolean;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    btnStyle?: "default" | "danger" | "warning" | "success";
+    label: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-    label = "Submit",
-    type = "default",
-    disabled = false,
-    onClick,
-}) => {
+const Button: React.FC<ButtonProps> = (props) => {
+    const btnStyle = props.btnStyle || "default";
+    const className = `${style.btn} ${style[btnStyle]} ${
+        props.className || ""
+    }`;
+
     return (
-        <button
-            className={`${style.btn} ${style[type]}`}
-            onClick={onClick}
-            disabled={disabled}
-        >
-            {label}
+        <button {...props} className={className}>
+            {props.label}
         </button>
     );
 };

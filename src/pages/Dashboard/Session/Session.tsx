@@ -98,7 +98,7 @@ const Session: React.FC<DashboardProps> = ({ loaded }) => {
                         <Button label="Register" onClick={handleRegister} />
                         <Button
                             label="Cancel"
-                            type="danger"
+                            btnStyle="danger"
                             onClick={handleCloseModal}
                         />
                     </div>

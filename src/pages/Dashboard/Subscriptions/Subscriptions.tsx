@@ -62,12 +62,12 @@ const Subscriptions: React.FC<DashboardProps> = ({ loaded }) => {
                     <Button
                         label="Edit"
                         onClick={() => handleEditSub(id)}
-                        type="warning"
+                        btnStyle="warning"
                     />
                     <Button
                         label="Delete"
                         onClick={() => handleDelSub(id)}
-                        type="danger"
+                        btnStyle="danger"
                     />
                 </div>
             );

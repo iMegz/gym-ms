@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { DashboardProps } from "../Dashboard";
 import style from "./Profile.module.css";
-import InputField from "../../../components/InputField/InputFIeld";
 import Button from "../../../components/Button/Button";
 import { FaUser } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import Modal from "../../../components/Modal/Modal";
 import { EditModal, FreezeModal, PasswordModal } from "./Modals";
 
 type SetShowFunction = React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,7 +21,7 @@ export interface ProfileInfo {
     isFrozen: boolean;
     memberSince: Date;
     sessions: number;
-    trainer: null;
+    accountType: "Member" | "Admin" | "Superuser";
 }
 
 function daysCalc(targetDate: Date): number {
@@ -75,7 +73,7 @@ const profileEmpty: ProfileInfo = {
     isFrozen: false,
     memberSince: new Date(),
     sessions: 0,
-    trainer: null,
+    accountType: "Member",
 };
 
 const profileInfo: ProfileInfo = {
@@ -91,7 +89,7 @@ const profileInfo: ProfileInfo = {
     isFrozen: false,
     memberSince: new Date("2023-03-2"),
     sessions: 125,
-    trainer: null,
+    accountType: "Member",
 };
 
 const Profile: React.FC<DashboardProps> = ({ loaded }) => {
@@ -107,6 +105,8 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
         const id = params.id;
         if (id) {
             // get data from server
+            setProfile(profileInfo); // Remove this line
+            loaded();
         } else {
             // get data from token in local storage
             setProfile(profileInfo);
@@ -120,7 +120,7 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
         }
     }, [profile]);
 
-    const isOwner = true;
+    const isOwner = !params.id;
 
     const handleShow = (setState: SetShowFunction) => () => setState(true);
     const handleHide = (setState: SetShowFunction) => () => setState(false);
@@ -191,14 +191,14 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
                                 <li>
                                     <Button
                                         label="Edit"
-                                        type="warning"
+                                        btnStyle="warning"
                                         onClick={handleShow(setShowEditModal)}
                                     />
                                 </li>
                                 <li>
                                     <Button
                                         label="Change password"
-                                        type="danger"
+                                        btnStyle="danger"
                                         onClick={handleShow(
                                             setShowChangePassModal
                                         )}
@@ -244,7 +244,7 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
                                 {profile.isFrozen ? (
                                     <Button
                                         label="Unfreeze"
-                                        type="danger"
+                                        btnStyle="danger"
                                         onClick={handleUnfreeze}
                                     />
                                 ) : (
@@ -259,7 +259,7 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
                                 ) : (
                                     <Button
                                         label="Change"
-                                        type="warning"
+                                        btnStyle="warning"
                                         onClick={handleShow(
                                             setShowSubscriptionModal
                                         )}
@@ -300,9 +300,9 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
                             </li>
                             <li>
                                 <span className={style["property-title"]}>
-                                    Personal trainer :
+                                    Account type :
                                 </span>
-                                <span>{profile.trainer || "No trainer"}</span>
+                                <span>{profile.accountType}</span>
                             </li>
                         </ul>
                     </section>
@@ -314,102 +314,3 @@ const Profile: React.FC<DashboardProps> = ({ loaded }) => {
 };
 
 export default Profile;
-
-/*
-<section
-                    className={`floating-section ${style["info-section"]}`}
-                >
-                    <h2>Account info</h2>
-                    <ul className={style.info}>
-                        <li>
-                            <span className={style["info-property"]}>
-                                Name :{" "}
-                            </span>
-                            <span>{profile.fullName}</span>
-                        </li>
-                        <li>
-                            <span className={style["info-property"]}>
-                                Email :{" "}
-                            </span>
-                            <span>{profile.email}</span>
-                        </li>
-                        <li>
-                            <span className={style["info-property"]}>
-                                Phone :{" "}
-                            </span>
-                            <span>{profile.phone}</span>
-                        </li>
-                    </ul>
-                </section>
-
-                <section
-                    className={`floating-section ${style["info-section"]}`}
-                >
-                    <h2>Subscritpion info</h2>
-                    <ul className={style.info}>
-                        <li>
-                            <span className={style["info-property"]}>
-                                Subscritpion :
-                            </span>
-                            <span>{profile.sub}</span>
-                        </li>
-                        <li>
-                            <span className={style["info-property"]}>
-                                Invitations :
-                            </span>
-                            <span>{profile.invitations}</span>
-                        </li>
-                        <li>
-                            <span className={style["info-property"]}>
-                                Expires in :
-                            </span>
-                            <span style={daysLeft < 8 ? { color: "red" } : {}}>
-                                {daysLeft} days
-                            </span>
-                        </li>
-                    </ul>
-                </section>
-
-                <section className={`floating-section ${style.freeze}`}>
-                    <h2>Freeze</h2>
-                    {profile.isFrozen ? (
-                        <Button label="Unfreeze" onClick={handleFreeze} />
-                    ) : (
-                        <>
-                            <select
-                                disabled={profile.freeze === 0}
-                                onChange={handleFreezeDurationChange}
-                            >
-                                <option value="" disabled selected hidden>
-                                    Duration
-                                </option>
-                                {Array.from(
-                                    { length: profile.freeze },
-                                    (_, i) => {
-                                        return (
-                                            <option value={i + 1} key={i + 1}>
-                                                {i + 1} Day{i !== 0 ? "s" : ""}
-                                            </option>
-                                        );
-                                    }
-                                )}
-                                <option value="manual">
-                                    I will manually unfreeze
-                                </option>
-                            </select>
-                            <Button
-                                label="Freeze"
-                                onClick={handleFreeze}
-                                disabled={profile.freeze === 0 || !freeze}
-                            />
-                        </>
-                    )}
-                </section>
-
-                <section className={`floating-section ${style.actions}`}>
-                    <h2>Actions</h2>
-                    <Button type="warning" label="Edit account info" />
-                    <Button type="danger" label="Change password" />
-                </section>
-
-*/
