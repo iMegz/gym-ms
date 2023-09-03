@@ -6,13 +6,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-    const btnStyle = props.btnStyle || "default";
-    const className = `${style.btn} ${style[btnStyle]} ${
-        props.className || ""
-    }`;
+    let { btnStyle, className, ...rest } = props;
+
+    btnStyle ||= "default";
+    className = `${style.btn} ${style[btnStyle]} ${className || ""}`;
 
     return (
-        <button {...props} className={className}>
+        <button {...rest} className={className}>
             {props.label}
         </button>
     );

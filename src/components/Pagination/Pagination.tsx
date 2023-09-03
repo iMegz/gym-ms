@@ -52,10 +52,24 @@ const Pagination: React.FC<PaginationProps> = ({
                 } else {
                     if (!flagPre && i + 1 < currentPage) {
                         flagPre = true;
-                        return <li className={style["hidden-pages"]}>...</li>;
+                        return (
+                            <li
+                                key="hidden-pre"
+                                className={style["hidden-pages"]}
+                            >
+                                ...
+                            </li>
+                        );
                     } else if (!flagPost && i + 1 > currentPage) {
                         flagPost = true;
-                        return <li className={style["hidden-pages"]}>...</li>;
+                        return (
+                            <li
+                                key="hidden-post"
+                                className={style["hidden-pages"]}
+                            >
+                                ...
+                            </li>
+                        );
                     }
                 }
             });
