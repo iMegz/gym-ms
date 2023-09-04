@@ -21,7 +21,7 @@ const Session: React.FC<DashboardProps> = ({ loaded }) => {
     }, [memberId]);
 
     function handleOnIdChange(value: string) {
-        setMemberId(value);
+        if (value !== " ") setMemberId(value);
         setInvitations(0);
     }
 

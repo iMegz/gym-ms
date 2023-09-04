@@ -4,6 +4,7 @@ import Modal from "../../../components/Modal/Modal";
 import { ProfileInfo } from "./Profile";
 import style from "./Profile.module.css";
 import InputField from "../../../components/InputField/InputFIeld";
+import { isEmail, isPhoneNumber, isValidPassword } from "../validators";
 
 interface ModalProps {
     profile: ProfileInfo;
@@ -72,17 +73,6 @@ export const EditModal: React.FC<ModalProps> = ({ profile, hideModal }) => {
         else setIsValid(false);
     }, [name, email, phone]);
 
-    // Validators
-    function isEmail(value: string) {
-        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-        return emailRegex.test(value);
-    }
-
-    function isPhoneNumber(value: string) {
-        const phoneRegex = /^01\d{9}$/; // Egyptian phone number
-        return phoneRegex.test(value);
-    }
-
     // Actions
     function handleEdit() {
         // send to backend
@@ -141,10 +131,6 @@ export const PasswordModal: React.FC<ModalProps> = ({ hideModal }) => {
     }, [oldPassword, newPassword, confirmPassword]);
 
     // Validators
-    function isValidPassword(password: string) {
-        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-        return regex.test(password);
-    }
 
     // Actions
     function handleChangePassword() {

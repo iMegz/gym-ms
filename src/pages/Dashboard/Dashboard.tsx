@@ -7,6 +7,7 @@ import loadingIcon from "../../assets/loading.gif";
 import Subscriptions from "./Subscriptions/Subscriptions";
 import Session from "./Session/Session";
 import Profile from "./Profile/Profile";
+import Members from "./Members/Members";
 
 export interface DashboardProps {
     loaded: () => void;
@@ -43,7 +44,10 @@ const Dashboard: React.FC = () => {
             <SideNav userType="superUser" />
             <section className={style.content}>
                 <Routes>
-                    <Route path="logs" element={<Logs loaded={loaded} />} />
+                    <Route
+                        path="members"
+                        element={<Members loaded={loaded} />}
+                    />
                     <Route
                         path="subscriptions"
                         element={<Subscriptions loaded={loaded} />}
@@ -52,6 +56,7 @@ const Dashboard: React.FC = () => {
                         path="session"
                         element={<Session loaded={loaded} />}
                     />
+                    <Route path="logs" element={<Logs loaded={loaded} />} />
                     <Route
                         path="profile"
                         element={<Profile loaded={loaded} />}
