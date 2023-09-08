@@ -1,0 +1,60 @@
+.admin {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.admin-info > span:first-of-type {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.profile-pic {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: contain;
+    border: 3px solid var(--primary);
+    padding: 3px;
+}
+
+.btns {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (min-width: 768px) and (max-width: 850px), (max-width: 640px) {
+    .admin {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btns {
+        margin: auto;
+    }
+}
+
+.modal {
+    width: fit-content;
+    display: grid;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal h2 {
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.modal h2 span {
+    text-decoration: underline;
+}

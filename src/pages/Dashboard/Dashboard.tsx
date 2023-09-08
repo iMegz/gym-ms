@@ -8,6 +8,7 @@ import Subscriptions from "./Subscriptions/Subscriptions";
 import Session from "./Session/Session";
 import Profile from "./Profile/Profile";
 import Members from "./Members/Members";
+import Admins from "./Admins/Admins";
 
 export interface DashboardProps {
     loaded: () => void;
@@ -44,6 +45,7 @@ const Dashboard: React.FC = () => {
             <SideNav userType="superUser" />
             <section className={style.content}>
                 <Routes>
+                    <Route path="admins" element={<Admins loaded={loaded} />} />
                     <Route
                         path="members"
                         element={<Members loaded={loaded} />}
